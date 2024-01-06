@@ -6,9 +6,9 @@
     ../../modules/core
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/audio.nix
-    ../../modules/hardware/network.nix
+    ../../modules/hardware/networking.nix
     ../../modules/system/desktop.nix
-  ]
+  ];
 
   # home config
   # home hyprland config

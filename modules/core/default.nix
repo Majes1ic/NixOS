@@ -1,4 +1,4 @@
-{
+{ inputs, config, lib, username, hostname, ... }:{
   imports = [
     ./bootloader.nix
     ./home-manager.nix
@@ -46,6 +46,4 @@
   };
   # time zone
   time.timeZone = "Europe/London";
-  # keyboard layout
-  layout = "us";
 }

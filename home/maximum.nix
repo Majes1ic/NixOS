@@ -1,10 +1,10 @@
-{
+{ pkgs, ... }: {
   imports = [
     ./core.nix
     ./desktop/hyprland.nix
   ];
 
-  packages = with pkgs; [
+  home.packages = with pkgs; [
     kitty
     webcord
     firefox

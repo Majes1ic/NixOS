@@ -1,6 +1,6 @@
-{
+{ hostname, ... }: {
   networking = {
-    networkmanager.enable;
+    networkmanager.enable = true;
     hostName = hostname;
     firewall.enable = true;
   };
@@ -9,7 +9,7 @@
 
   boot = {
     # arch wiki goes through these:
-    kernelModules = "tcp_bbr";
+    kernelModules = [ "tcp_bbr" ];
     kernel.sysctl = {
       "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
       # Enable reverse path filtering
