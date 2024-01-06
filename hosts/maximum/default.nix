@@ -17,6 +17,6 @@
   # generate and update hostID below using: 'head -c 8 /etc/machine-id'
   # add screenshot config
   
-  networking.hostId = "625ec505";
+  networking.hostId = "150ce5b1";
   system.stateVersion = "23.05";
 }
