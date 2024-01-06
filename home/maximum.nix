@@ -8,6 +8,8 @@
     kitty
     webcord
     firefox
+    neovim
+    micro
   ];
   programs.zsh.enable = true;
 }
