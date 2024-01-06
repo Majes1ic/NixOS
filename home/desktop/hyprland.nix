@@ -24,10 +24,11 @@
       input = {
         kb_layout = "us";
       };
-
+      
       binds = [
         "SUPER, Return, exec, ${pkgs.kitty}/bin/kitty"
       ];
     };
+    extraConfig = builtins.readFile ./hyprland.conf;
   };
 }
