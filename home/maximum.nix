@@ -9,4 +9,5 @@
     webcord
     firefox
   ];
+  programs.zsh.enable = true;
 }
