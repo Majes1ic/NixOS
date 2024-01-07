@@ -2,6 +2,7 @@
   imports = [
     ./core.nix
     ./desktop/hyprland.nix
+    ./desktop/rofi.nix
   ];
 
   home.packages = with pkgs; [
@@ -19,5 +20,5 @@
       # Prevents crash on launch
       "window.titleBarStyle" = "custom";
     };
-  }
+  };
 }
