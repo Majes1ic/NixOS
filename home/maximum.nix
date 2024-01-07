@@ -10,6 +10,7 @@
     firefox
     neovim
     micro
+    git
   ];
   programs.zsh.enable = true;
 }
