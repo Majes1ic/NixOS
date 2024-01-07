@@ -13,10 +13,4 @@
       ${username} = import ../../home/${hostname}.nix;
     };
   };
-  programs.vscode = {
-    enable = true;
-  }
-  programs.rofi = {
-    enable = true;
-  }
 }
