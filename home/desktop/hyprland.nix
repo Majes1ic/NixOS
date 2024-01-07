@@ -27,7 +27,7 @@
         kb_layout = "us";
       };
       
-      binds = [
+      bind = [
         "SUPER, Return, exec, ${pkgs.kitty}/bin/kitty"
       ];
     };
