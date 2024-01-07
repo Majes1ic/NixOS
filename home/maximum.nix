@@ -13,4 +13,11 @@
     git
   ];
   programs.zsh.enable = true;
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      # Prevents crash on launch
+      "window.titleBarStyle" = "custom";
+    };
+  }
 }
