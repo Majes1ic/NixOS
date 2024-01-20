@@ -24,7 +24,7 @@
   };
   networking.firewall.interfaces.wg-discord = {
     # For OBS screensharing
-    allowedUDPPorts = [ 5201 ];
+    allowedUDPPorts = [ 19901 ];
   };  
 
   programs.zsh = {
