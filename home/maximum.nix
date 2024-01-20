@@ -11,6 +11,7 @@
     neovim
     micro
     git
+    xdg-utils #because vs code doesn't work without it
   ];
   programs.firefox.enable = true;
   programs.zsh.enable = true;
@@ -28,4 +29,5 @@
       hwdec = "auto";
     };
   };
+  programs.obs-studio.enable = true;
 }
