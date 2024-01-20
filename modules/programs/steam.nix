@@ -1,3 +1,3 @@
 {inputs, pkgs, ... }: {
-  programs.enable.steam = true;
+  programs.steam.enable = true;
 }
