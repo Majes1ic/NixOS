@@ -4,7 +4,7 @@
     driSupport = true;
     driSupport32Bit = true;
      # nvidia hardware acceleration
-    extraPackages = [ pkgs.vaapiVdpau ];
+    extraPackages = [ pkgs.vaapiVdpau pkgs.nvidia-vaapi-driver ];
   };
 
   hardware.nvidia = {
