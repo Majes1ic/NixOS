@@ -13,14 +13,18 @@
         #  title edk2-shell
         #  efi /efi/edk2-shell/shellx64.efi
         #'';
-          "windows.conf" = ''
+        "windows.conf" = ''
           title windows
-          efi /efi/windows/windows.nsh
+          efi /efi/edk2-shell/shellx64.efi
+          options -nointerrupt -noconsolein -noconsoleoute windows.nsh
         '';
       };
     };
     efi = {
       canTouchEfiVariables = true;
     };
+  };
+  programs.zsh.shellAliases = {
+    boot-windows = "systemctl reboot --boot-loader-entry=windows.conf";
   };
 }
