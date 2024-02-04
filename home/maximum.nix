@@ -12,6 +12,7 @@
     micro
     git
     xdg-utils #because vs code doesn't work without it
+    vesktop
   ];
   programs.firefox.enable = true;
   programs.zsh.enable = true;
