@@ -16,7 +16,7 @@
         "windows.conf" = ''
           title windows
           efi /efi/edk2-shell/shellx64.efi
-          options -nointerrupt -noconsolein -noconsoleoute windows.nsh
+          options -nointerrupt -noconsolein -noconsoleout windows.nsh
         '';
       };
     };
