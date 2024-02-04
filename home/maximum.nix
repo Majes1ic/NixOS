@@ -30,4 +30,10 @@
     };
   };
   programs.obs-studio.enable = true;
+  programs.mangohud = {
+    enable = true;
+    settings = {
+      full = true;
+    };
+  };
 }
