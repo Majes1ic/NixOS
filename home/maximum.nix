@@ -7,12 +7,13 @@
   ];
 
   home.packages = with pkgs; [
-    kitty
+    kitty #
     neovim
     micro
     git
     xdg-utils #because vs code doesn't work without it
-    vesktop
+    vesktop #discord client
+    hyprshot #screenshot
   ];
   programs.firefox.enable = true;
   programs.zsh.enable = true;
