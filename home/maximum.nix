@@ -3,7 +3,8 @@
   imports = [
     ./core.nix
     ./desktop/hyprland.nix
-    ./desktop/rofi.nix
+#    ./desktop/rofi.nix
+    ./desktop/waybar.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +16,12 @@
     vesktop #discord client
     hyprshot #screenshot
   ];
+  programs.fuzzel = {
+    enable = true;
+  };
+  services.dunst = {
+    enable = true;
+  };
   programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.vscode = {
