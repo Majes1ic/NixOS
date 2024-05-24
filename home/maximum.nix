@@ -3,7 +3,7 @@
   imports = [
     ./core.nix
     ./desktop/hyprland.nix
-#    ./desktop/rofi.nix
+    #./desktop/rofi.nix
     ./desktop/waybar.nix
   ];
 
@@ -16,12 +16,15 @@
     vesktop #discord client
     hyprshot #screenshot
   ];
+
   programs.fuzzel = {
     enable = true;
   };
+
   services.dunst = {
     enable = true;
   };
+
   programs.firefox.enable = true;
   programs.zsh.enable = true;
   programs.vscode = {
@@ -29,8 +32,10 @@
     userSettings = {
       # Prevents crash on launch
       "window.titleBarStyle" = "custom";
+      "nix.enableLanguageServer" = true;
     };
   };
+
   programs.mpv = {
     enable = true;
     config = {
@@ -38,7 +43,9 @@
       hwdec = "auto";
     };
   };
+
   programs.obs-studio.enable = true;
+
   programs.mangohud = {
     enable = true;
     settings = {
