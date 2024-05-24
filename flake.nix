@@ -13,7 +13,11 @@
 
     #  Hyprland here for latest version
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland?rev=67f47fbdccd639502a76ccb3552a23df37f19ef8";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    grimblast = {
+      url = "github:JManch/grimblast";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
