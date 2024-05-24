@@ -20,7 +20,8 @@
       ];
 
       monitor = [
-        ",preferred,auto,1"
+        "HDMI-A-1,2560x1440@75,0x0,1"
+        "DP-2,2560x1440@360,2560x0,1"
       ];
 
       input = {
@@ -30,6 +31,11 @@
       bind = [
         "SUPER, Return, exec, ${pkgs.kitty}/bin/kitty"
       ];
+
+#      When VRR fixed for 2 monitors, uncomment
+#      misc = {
+#        vrr = 1;
+#      };
     };
     extraConfig = builtins.readFile ./hyprland.conf;
   };
