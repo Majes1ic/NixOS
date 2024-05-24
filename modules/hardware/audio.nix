@@ -1,7 +1,7 @@
 { lib, pkgs, ...}:
 {
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  # services.blueman.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -10,7 +10,7 @@
     wireplumber.enable = true;
   };
 
-  environment.systemPackages = [ pkgs.pavucontrol ];
+  # environment.systemPackages = [ pkgs.pavucontrol ];
 
   hardware.pulseaudio.enable = lib.mkForce false;
 
