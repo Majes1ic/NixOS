@@ -2,9 +2,9 @@
 {
   imports = [
     ./core.nix
-    ./desktop/hyprland.nix
+    #./desktop/hyprland.nix
     #./desktop/rofi.nix
-    ./desktop/waybar.nix
+    #./desktop/waybar.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,16 +14,16 @@
     git
     xdg-utils #because vs code doesn't work without it
     vesktop #discord client
-    hyprshot #screenshot
+    #hyprshot #screenshot
   ];
 
-  programs.fuzzel = {
-    enable = true;
-  };
+  # programs.fuzzel = {
+  #   enable = true;
+  # };
 
-  services.dunst = {
-    enable = true;
-  };
+  # services.dunst = {
+  #   enable = true;
+  # };
 
   programs.firefox.enable = true;
   programs.zsh.enable = true;

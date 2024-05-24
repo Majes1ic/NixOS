@@ -1,10 +1,23 @@
 {inputs, pkgs, ... }: {
-  imports = [
-    inputs.hyprland.nixosModules.default
-  ];
+  # imports = [
+  #   inputs.hyprland.nixosModules.default
+  # ];
 
-  programs.hyprland.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  # programs.hyprland.enable = true;
   # keyboard layout
   services.xserver.xkb.layout = "us";
+
+  services.xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+  };
+
+  programs.dconf.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    gnomeExtensions.appindicator
+  ];
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 }
