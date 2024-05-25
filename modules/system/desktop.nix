@@ -17,6 +17,7 @@
 
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
+    gnome.dconf-editor
   ];
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
