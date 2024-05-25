@@ -36,6 +36,8 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
+      # test of nix config
+      rebuild-test = "sudo nixos-rebuild test --flake /home/${username}/.config/nixos#${hostname}";
       # hot switch of nix config
       rebuild-switch = "sudo nixos-rebuild switch --flake /home/${username}/.config/nixos#${hostname}";
       # build nix config
