@@ -15,6 +15,7 @@
     xdg-utils #because vs code doesn't work without it
     vesktop #discord client
     #hyprshot #screenshot
+    prismlauncher
   ];
 
   # programs.fuzzel = {
@@ -26,6 +27,8 @@
   # };
 
   programs.firefox.enable = true;
+  #added as firefox broken on nvidia 555
+  programs.chromium.enable = true;
   programs.zsh.enable = true;
   programs.vscode = {
     enable = true;
