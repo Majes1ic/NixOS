@@ -9,6 +9,7 @@
       zip
       tree
       wget
+      nil
     ];
   };
 
