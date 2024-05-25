@@ -12,6 +12,7 @@
       address = [ "10.0.0.6/24" ];
       autostart = false;
       privateKeyFile = "/home/${username}/.wireguard/private";
+      dns = ["10.0.0.7"];
       peers = [
         {
           publicKey = "PbFraM0QgSnR1h+mGwqeAl6e7zrwGuNBdAmxbnSxtms=";
