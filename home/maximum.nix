@@ -16,6 +16,7 @@
     vesktop #discord client
     #hyprshot #screenshot
     prismlauncher
+    bitwarden
   ];
 
   # programs.fuzzel = {
