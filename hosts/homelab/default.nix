@@ -8,6 +8,6 @@
   ];
 
   # TODO: Generate a random hostID
-  networking.hostID = "xxxxxxxx";
+  networking.hostID = "d48f462c";
   system.stateVersion = "23.05";
 }
