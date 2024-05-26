@@ -1,4 +1,4 @@
-{inputs, pkgs, ... }: {
+{inputs, pkgs,, username, ... }: {
   # imports = [
   #   inputs.hyprland.nixosModules.default
   # ];
@@ -22,12 +22,12 @@
   ];
 
   # Change default color theme for all GTK4 applications to dark
-  dconf = {
+  home-manager.users.${username}.dconf = {
     enable = true;
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
-  gtk = {
+  home-manager.users.${username}.gtk = {
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
