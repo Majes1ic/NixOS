@@ -7,7 +7,6 @@
     # ../../modules/programs/wireguard.nix
   ];
 
-  # TODO: Generate a random hostID
-  networking.hostID = "d48f462c";
+  networking.hostId = "d48f462c";
   system.stateVersion = "23.05";
 }
