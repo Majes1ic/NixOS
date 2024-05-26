@@ -22,25 +22,36 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs: 
-  let
-    username = "tom";
-  in
-  {
-    nixosConfigurations = {
-      maximum = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        specialArgs = {
-          inherit inputs username;
-          hostname = "maximum";
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+    let
+      username = "tom";
+    in
+    {
+      nixosConfigurations = {
+        maximum = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs username;
+            hostname = "maximum";
+          };
+          modules = [
+            # this is the same as ./hosts/maximum/default.nix
+            ./hosts/maximum
+          ];
         };
-        modules = [
-          # this is the same as ./hosts/maximum/default.nix
-          ./hosts/maximum
-        ];
+
+        homelab = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs username;
+            hostname = "homelab";
+          };
+          modules = [
+            ./hosts/homelab
+          ];
+        };
       };
     };
-  };
 
   # A flake has inputs and outputs
   # Inputs are mostly other flakes, but that can be non-flakes (rare though)
