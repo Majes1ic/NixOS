@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnome.dconf-editor
+    lm_sensors
   ];
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
