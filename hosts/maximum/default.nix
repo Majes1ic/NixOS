@@ -7,7 +7,7 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/audio.nix
     ../../modules/hardware/networking.nix
-    ../../modules/system/desktop.nix
+    ../../modules/system/gnome.nix
     # ../../modules/system/greetd.nix
     ../../modules/programs/steam.nix
     ../../modules/programs/wireguard.nix
