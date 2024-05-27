@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
   imports = [
     ./core.nix
@@ -6,28 +6,21 @@
   ];
 
   home.packages = with pkgs; [
-    kitty #
+    kitty
     neovim
     micro
     git
-    xdg-utils #because vs code doesn't work without it
-    vesktop #discord client
+    xdg-utils # because vs code doesn't work without it
+    vesktop # discord client
     prismlauncher
-    bitwarden
+    bitwarden-desktop
   ];
 
-  # programs.fuzzel = {
-  #   enable = true;
-  # };
-
-  # services.dunst = {
-  #   enable = true;
-  # };
-
   programs.firefox.enable = true;
-  #added as firefox broken on nvidia 555
+  # added as firefox broken on nvidia 555
   programs.chromium.enable = true;
   programs.zsh.enable = true;
+  programs.obs-studio.enable = true;
 
   programs.mpv = {
     enable = true;
@@ -36,8 +29,6 @@
       hwdec = "auto";
     };
   };
-
-  programs.obs-studio.enable = true;
 
   programs.mangohud = {
     enable = true;
