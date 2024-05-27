@@ -28,14 +28,6 @@
   #added as firefox broken on nvidia 555
   programs.chromium.enable = true;
   programs.zsh.enable = true;
-  programs.vscode = {
-    enable = true;
-    userSettings = {
-      # Prevents crash on launch
-      "window.titleBarStyle" = "custom";
-      "nix.enableLanguageServer" = true;
-    };
-  };
 
   programs.mpv = {
     enable = true;
