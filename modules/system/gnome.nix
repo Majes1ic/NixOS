@@ -18,7 +18,6 @@
   environment.systemPackages = with pkgs; [
     gnomeExtensions.appindicator
     gnome.dconf-editor
-    lm_sensors
   ];
 
   # Change default color theme for all GTK4 applications to dark

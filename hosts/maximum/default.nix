@@ -12,6 +12,10 @@
     ../../modules/programs/wireguard.nix
   ];
 
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+  ];
+
   networking.hostId = "150ce5b1";
   system.stateVersion = "23.05";
 }
