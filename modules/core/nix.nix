@@ -8,19 +8,24 @@
 {
   nixpkgs = {
     overlays = [ ];
-    config = {
-      allowUnfree = true;
-    };
+    config.allowUnfree = true;
   };
 
   nix = {
     # Allows referring to flakes with nixpkgs#flake
     registry = (lib.mapAttrs (_: flake: { inherit flake; })) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
+
     settings = {
       # enable flakes
       experimental-features = "nix-command flakes";
-      # clean up store files
+      # save space by removing duplicate files from the store
       auto-optimise-store = true;
+    };
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
     };
   };
 
