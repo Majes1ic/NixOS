@@ -2,9 +2,7 @@
 {
   imports = [
     ./core.nix
-    #./desktop/hyprland.nix
-    #./desktop/rofi.nix
-    #./desktop/waybar.nix
+    ./programs/vscode.nix
   ];
 
   home.packages = with pkgs; [
@@ -14,7 +12,6 @@
     git
     xdg-utils #because vs code doesn't work without it
     vesktop #discord client
-    #hyprshot #screenshot
     prismlauncher
     bitwarden
   ];
