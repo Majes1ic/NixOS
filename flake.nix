@@ -10,19 +10,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    #  Hyprland here for latest version
-    hyprland = {
-      url = "github:hyprwm/Hyprland?rev=67f47fbdccd639502a76ccb3552a23df37f19ef8";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    grimblast = {
-      url = "github:JManch/grimblast";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
+  outputs = { nixpkgs, ... } @ inputs:
     let
       username = "tom";
     in
