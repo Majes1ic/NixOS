@@ -8,9 +8,12 @@
     ../../modules/hardware/audio.nix
     ../../modules/hardware/networking.nix
     ../../modules/system/gnome.nix
+    ../../modules/system/virtualisation.nix
     ../../modules/programs/steam.nix
     ../../modules/programs/wireguard.nix
   ];
+
+  modules.virtualisation.graphicalVM = true;
 
   environment.systemPackages = with pkgs; [
     lm_sensors
