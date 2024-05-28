@@ -19,7 +19,6 @@
   programs.firefox.enable = true;
   # added as firefox broken on nvidia 555
   programs.chromium.enable = true;
-  programs.zsh.enable = true;
   programs.obs-studio.enable = true;
 
   programs.mpv = {

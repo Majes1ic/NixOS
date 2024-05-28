@@ -12,5 +12,7 @@
     ];
   };
 
+  programs.zsh.enable = true;
+
   home.stateVersion = "23.05";
 }
