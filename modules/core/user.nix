@@ -9,4 +9,11 @@
       extraGroups = [ "wheel" ];
     };
   };
+
+  virtualisation.vmVariant = {
+    users.users.${username} = {
+      password = "test";
+      hashedPassword = lib.mkVMOverride null;
+    };
+  };
 }
