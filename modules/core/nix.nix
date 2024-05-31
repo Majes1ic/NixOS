@@ -1,4 +1,5 @@
 { lib
+, pkgs
 , config
 , inputs
 , username
@@ -39,17 +40,22 @@
       })
       config.nix.registry;
 
-  programs.zsh = {
-    enable = true;
-    shellAliases = {
-      # test of nix config
-      rebuild-test = "sudo nixos-rebuild test --flake /home/${username}/.config/nixos#${hostname}";
-      # hot switch of nix config
-      rebuild-switch = "sudo nixos-rebuild switch --flake /home/${username}/.config/nixos#${hostname}";
-      # build nix config
-      rebuild-build = "sudo nixos-rebuild build --flake /home/${username}/.config/nixos#${hostname}";
-      # build and set it to apply on next boot
-      rebuild-boot = "sudo nixos-rebuild boot --flake /home/${username}/.config/nixos#${hostname}";
-    };
-  };
+  # Generate rebuild command scripts
+  environment.systemPackages = map
+    (cmd: pkgs.writeShellApplication {
+      name = "rebuild-${cmd}";
+      runtimeInputs = with pkgs; [ nixos-rebuild nvd ];
+      text = /*bash*/ ''
+        pushd ~ >/dev/null 2>&1
+        exit() {
+          popd >/dev/null 2>&1
+        }
+        trap exit EXIT
+        nixos-rebuild ${if (cmd == "diff") then "build" else cmd} \
+          --use-remote-sudo --flake "/home/${username}/.config/nixos#${hostname}" "$@"
+        ${lib.optionalString (cmd == "diff") /*bash*/ ''
+          nvd diff /run/current-system result
+        ''}
+      '';
+    }) [ "switch" "test" "boot" "build" "dry-build" "dry-activate" "diff" ];
 }
