@@ -1,6 +1,6 @@
-{ username, pkgs, ... }: {
+{ pkgs, username, ... }: {
   programs.home-manager.enable = true;
-  
+
   home = {
     username = "${username}";
     homeDirectory = "/home/${username}";
@@ -9,9 +9,10 @@
       zip
       tree
       wget
-      nil
     ];
   };
+
+  programs.zsh.enable = true;
 
   home.stateVersion = "23.05";
 }

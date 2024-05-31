@@ -1,11 +1,12 @@
 { hostname, ... }: {
+  services.resolved.enable = true;
+
   networking = {
+    useDHCP = false; # network manager handles DHCP instead
     networkmanager.enable = true;
     hostName = hostname;
     firewall.enable = true;
   };
-
-  services.resolved.enable = true;
 
   boot = {
     # arch wiki goes through these:
