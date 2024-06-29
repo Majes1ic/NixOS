@@ -14,13 +14,19 @@
     vesktop # discord client
     prismlauncher
     bitwarden-desktop
+    heroic
+    lutris
+    stremio
+    qbittorrent
+    # audio piping (patch panel)
+    qpwgraph
   ];
 
   programs.firefox.enable = true;
   # added as firefox broken on nvidia 555
   programs.chromium.enable = true;
   programs.obs-studio.enable = true;
-
+  
   programs.mpv = {
     enable = true;
     config = {
