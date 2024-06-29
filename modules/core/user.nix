@@ -1,14 +1,15 @@
-{ lib, pkgs, username, ... }:
+{ lib, pkgs, username, config, ... }:
 {
   users = {
     mutableUsers = false;
     users.${username} = {
       isNormalUser = true;
       shell = pkgs.zsh;
-      hashedPassword = "$y$j7T$ZfkUr9Cl/SReyolJDGCgc.$NkCzfqNX/goO9cQ.2RnReh/O2WOm8EOIxhNQ4A/JIpD";
+      hashedPasswordFile = config.age.secrets.usrPass.path;
       extraGroups = [ "wheel" ];
     };
   };
+  age.secrets.usrPass.file = ../../secrets/usrPass.age;
 
   virtualisation.vmVariant = {
     users.users.${username} = {
