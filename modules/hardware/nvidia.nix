@@ -1,8 +1,8 @@
 { pkgs, config, ... }: {
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    #driSupport = true;
+    #driSupport32Bit = true;
     # nvidia hardware acceleration
     extraPackages = [ pkgs.vaapiVdpau pkgs.nvidia-vaapi-driver ];
   };
