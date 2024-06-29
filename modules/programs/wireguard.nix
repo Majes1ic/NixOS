@@ -1,4 +1,4 @@
-{inputs, pkgs, username, ... }: {
+{ pkgs, username, ... }: {
   environment.systemPackages = with pkgs; [ wireguard-tools ];
 	networking.wg-quick.interfaces = {
     wg-discord = {
@@ -34,5 +34,4 @@
       wg-discord-down = "sudo systemctl stop wg-quick-wg-discord";
     };
   };
-
 }
