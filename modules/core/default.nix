@@ -1,9 +1,10 @@
 {
   imports = [
+    ./age.nix
+    ./filesystem.nix
+    ./home-manager.nix
     ./nix.nix
     ./user.nix
-    ./home-manager.nix
-    ./filesystem.nix
   ];
 
   programs.zsh.enable = true;
