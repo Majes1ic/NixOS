@@ -20,4 +20,27 @@
   # Fixes extra ghost display
   boot.kernelParams = [ "nvidia-drm.fbdev=1" ];
 
+  # Completely disable suspend and hibernate as it seems broken on nvidia and
+  # accidentally pressing the button in gnome can put the system in a broken
+  # state
+  systemd = {
+    targets = {
+      sleep = {
+        enable = false;
+        unitConfig.DefaultDependencies = "no";
+      };
+      suspend = {
+        enable = false;
+        unitConfig.DefaultDependencies = "no";
+      };
+      hibernate = {
+        enable = false;
+        unitConfig.DefaultDependencies = "no";
+      };
+      hybrid-sleep = {
+        enable = false;
+        unitConfig.DefaultDependencies = "no";
+      };
+    };
+  };
 }
