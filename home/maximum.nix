@@ -10,16 +10,15 @@
     neovim
     micro
     git
-    xdg-utils # because vs code doesn't work without it
-    vesktop # discord client
+    xdg-utils         # because vs code doesn't work without it
+    vesktop           # discord client
     prismlauncher
     bitwarden-desktop
     heroic
     lutris
     stremio
     qbittorrent
-    # audio piping (patch panel)
-    qpwgraph
+    qpwgraph          # audio piping (patch panel)
   ];
 
   programs.firefox.enable = true;
