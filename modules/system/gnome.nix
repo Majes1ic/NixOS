@@ -28,6 +28,11 @@ in
   # https://bugzilla.mozilla.org/show_bug.cgi?id=1898476
   environment.sessionVariables.MOZ_ENABLE_WAYLAND = 0;
 
+  # Enables wayland support in Chromium and Electron based applications. Until
+  # the above firefox bug is fixed, this breaks link opening from discord as
+  # interactions between wayland and xwayland apps do not work.
+  environment.sessionVariables.NIXOS_OZONE_WL = 1;
+
   home-manager.users.${username} = {
     # Change default color theme for all GTK4 applications to dark
     dconf = {
