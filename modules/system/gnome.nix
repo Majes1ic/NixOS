@@ -1,7 +1,8 @@
-{ pkgs, username, ... }: {
-  # Attempt to disable gnome power profiles
-  powerManagement.enable = false;
-  services.power-profiles-daemon.enable = false;
+{ lib, pkgs, username, ... }:
+{
+  # Disable gnome power profile functionality
+  services.upower.enable = lib.mkForce false;
+  services.power-profiles-daemon.enable = lib.mkForce false;
 
   services.xserver = {
     enable = true;
