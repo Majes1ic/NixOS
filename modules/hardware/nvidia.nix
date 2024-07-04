@@ -16,4 +16,8 @@
   };
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # Fixes extra ghost display
+  boot.kernelParams = [ "nvidia-drm.fbdev=1" ];
+
 }
