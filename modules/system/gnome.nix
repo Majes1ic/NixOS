@@ -1,4 +1,11 @@
 { lib, pkgs, username, ... }:
+let
+  extensions = with pkgs.gnomeExtensions; [
+    appindicator
+    dash-to-dock
+    night-theme-switcher
+  ];
+in
 {
   # Disable gnome power profile functionality
   services.upower.enable = lib.mkForce false;
@@ -10,10 +17,9 @@
     desktopManager.gnome.enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    gnomeExtensions.appindicator
-    gnome.dconf-editor
-  ];
+  environment.systemPackages = extensions ++ (with pkgs.gnome; [
+    dconf-editor
+  ]);
 
   # To workaround crashing, temporarily force Firefox to use xwayland.
   # Remove once these issues get resolved:
