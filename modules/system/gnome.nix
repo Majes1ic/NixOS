@@ -37,7 +37,64 @@ in
     # Change default color theme for all GTK4 applications to dark
     dconf = {
       enable = true;
-      settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      settings = {
+        "org/gnome/desktop/interface" = {
+          color-scheme = "prefer-dark";
+        };
+
+        "org/gnome/desktop/peripherals/mouse" = {
+          accel-profile = "flat";
+        };
+
+        "org/gnome/desktop/wm/preferences" = {
+          action-middle-click-titlebar = "toggle-maximize-vertically";
+          button-layout = "appmenu:minimize,close";
+          # Focus follows mouse
+          focus-mode = "sloppy";
+          resize-with-right-button = true;
+        };
+
+        "org/gnome/mutter" = {
+          edge-tiling = true;
+        };
+
+        "org/gnome/settings-daemon/plugins/color" = {
+          night-light-enabled = true;
+          night-light-schedule-automatic = true;
+        };
+
+        # Allow apps to use location for sunrise/sunset time
+        "org/gnome/system/location" = {
+          enabled = true;
+        };
+
+        "org/gnome/settings-daemon/plugins/power" = {
+          # Set power button to power off system
+          power-button-action = "interactive";
+          # Disable inactive suspend
+          sleep-inactive-ac-type = "nothing";
+        };
+
+        "org/gnome/shell" = {
+          # Enable our installed extenions and some of the pre-installed ones
+          enabled-extensions = (map (e: e.extensionUuid) extensions) ++ [
+            "drive-menu@gnome-shell-extensions.gcampax.github.com"
+            "launch-new-instance@gnome-shell-extensions.gcampax.github.com"
+          ];
+        };
+
+        "org/gnome/shell/extensions/nightthemeswitcher/time" = {
+          # Use sunrise/sunset time
+          manual-schedule = false;
+        };
+
+        "org/gnome/shell/extensions/dash-to-dock" = {
+          click-action = "focus-or-appspread";
+          scroll-action = "cycle-windows";
+          apply-custom-theme = true;
+          show-trash = false;
+        };
+      };
     };
 
     gtk = {
