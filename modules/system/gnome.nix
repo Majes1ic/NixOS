@@ -1,9 +1,4 @@
 { pkgs, username, ... }: {
-  # keyboard layout
-  services.xserver.xkb.layout = "us";
-
-  programs.dconf.enable = true;
-
   # Attempt to disable gnome power profiles
   powerManagement.enable = false;
   services.power-profiles-daemon.enable = false;
