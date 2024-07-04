@@ -95,11 +95,12 @@ in
           apply-custom-theme = true;
           show-trash = false;
         };
-        
+
         "org/virt-manager/virt-manager/connections" = {
           autoconnect = ["qemu:///system"];
           uris = ["qemu:///system"];
         };
+      };
     };
 
     gtk = {
