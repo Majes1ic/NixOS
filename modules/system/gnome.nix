@@ -104,6 +104,13 @@ in
         package = pkgs.papirus-icon-theme;
       };
     };
+
+    home.pointerCursor = {
+      gtk.enable = true;
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
   };
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
