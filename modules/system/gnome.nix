@@ -83,9 +83,10 @@ in
           ];
         };
 
-        "org/gnome/shell/extensions/nightthemeswitcher/time" = {
-          # Use sunrise/sunset time
-          manual-schedule = false;
+        "org/gnome/shell/extensions/nightthemeswitcher/commands" = {
+          enabled = true;
+          sunset = "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice";
+          sunrise = "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic";
         };
 
         "org/gnome/shell/extensions/dash-to-dock" = {
