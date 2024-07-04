@@ -19,6 +19,7 @@ in
 
   environment.systemPackages = extensions ++ (with pkgs.gnome; [
     dconf-editor
+    gnome-tweaks
   ]);
 
   # To workaround crashing, temporarily force Firefox to use xwayland.
