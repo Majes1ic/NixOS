@@ -1,17 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     ./core.nix
     ./programs/vscode.nix
   ];
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     kitty
     neovim
     micro
     git
-    xdg-utils         # because vs code doesn't work without it
-    vesktop           # discord client
+    xdg-utils # because vs code doesn't work without it
     discord
     prismlauncher
     bitwarden-desktop
@@ -19,15 +18,17 @@
     lutris
     stremio
     qbittorrent
-    qpwgraph          # audio piping (patch panel)
+    qpwgraph # audio piping (patch panel)
     lua
+  ]) ++ [
+    inputs.joshua-flake.packages.${pkgs.system}.vesktop
   ];
 
   programs.firefox.enable = true;
   # added as firefox broken on nvidia 555
   programs.chromium.enable = true;
   programs.obs-studio.enable = true;
-  
+
   programs.mpv = {
     enable = true;
     config = {
