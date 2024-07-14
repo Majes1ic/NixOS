@@ -20,6 +20,7 @@
     stremio
     qbittorrent
     qpwgraph          # audio piping (patch panel)
+    lua
   ];
 
   programs.firefox.enable = true;
