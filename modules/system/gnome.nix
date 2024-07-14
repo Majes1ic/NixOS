@@ -59,7 +59,7 @@ in
         };
 
         "org/gnome/settings-daemon/plugins/color" = {
-          night-light-enabled = true;
+          night-light-enabled = false;
           night-light-schedule-automatic = true;
         };
 
@@ -87,13 +87,6 @@ in
           enabled = true;
           sunset = "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Ice";
           sunrise = "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic";
-        };
-
-        "org/gnome/shell/extensions/dash-to-dock" = {
-          click-action = "focus-or-appspread";
-          scroll-action = "cycle-windows";
-          apply-custom-theme = true;
-          show-trash = false;
         };
 
         "org/virt-manager/virt-manager/connections" = {
