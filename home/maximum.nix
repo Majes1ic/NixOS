@@ -69,4 +69,6 @@
       full = true;
     };
   };
+
+  home.stateVersion = "23.05";
 }

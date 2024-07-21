@@ -1,4 +1,5 @@
-{ pkgs, username, ... }: {
+{ pkgs, username, ... }:
+{
   programs.home-manager.enable = true;
 
   home = {
@@ -27,9 +28,6 @@
 
     settings = {
       add_newline = false;
-
     };
   };
-
-  home.stateVersion = "23.05";
 }
