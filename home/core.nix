@@ -9,10 +9,27 @@
       zip
       tree
       wget
+      (nerdfonts.override { fonts = [ "FiraCode" ]; })
     ];
   };
 
-  programs.zsh.enable = true;
+  fonts.fontconfig.enable = true;
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
+  };
+
+  programs.starship = {
+    enable = true;
+
+    settings = {
+      add_newline = false;
+
+    };
+  };
 
   home.stateVersion = "23.05";
 }
