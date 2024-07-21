@@ -21,13 +21,16 @@
     qbittorrent
     qpwgraph          # audio piping (patch panel)
     lua
+    zed-editor
+    godot_4
+    love
   ];
 
   programs.firefox.enable = true;
   # added as firefox broken on nvidia 555
   programs.chromium.enable = true;
   programs.obs-studio.enable = true;
-  
+
   programs.mpv = {
     enable = true;
     config = {
