@@ -22,16 +22,37 @@
         }
       ];
     };
+    wg-home = {
+      address = ["10.0.1.1/24"];
+      listenPort = 51820;
+      autostart = true;
+      privateKeyFile = "/home/${username}/.wireguard/private";
+      peers = [
+        {
+          #for laptop
+          publicKey = "T1EHPg4tkmQ1KFWGzspBYAkjzLL1JzWTNtPsSkObLUE=";
+          allowedIPs = ["10.0.1.2/32"];
+        }
+        {
+          #for phone
+          publicKey = "xDDnUvzTcSGA4htsmYBSQykgLVv/MCEUwEKc+IOoL3w=";
+          allowedIPs = ["10.0.1.3/32"];
+        }
+      ];
+    };
   };
   networking.firewall.interfaces.wg-discord = {
     # For OBS screensharing
     allowedUDPPorts = [ 5201 ];
-  };  
+  };
+  networking.firewall.allowedUDPPorts = [ 51820 ];
 
   programs.zsh = {
     shellAliases = {
       wg-discord-up = "sudo systemctl start wg-quick-wg-discord";
       wg-discord-down = "sudo systemctl stop wg-quick-wg-discord";
+      wg-home-up = "sudo systemctl start wg-quick-wg-home";
+      wg-home-down = "sudo systemctl stop wg-quick-wg-home";
     };
   };
 }
