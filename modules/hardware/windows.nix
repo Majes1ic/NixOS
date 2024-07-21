@@ -24,4 +24,5 @@
   programs.zsh.shellAliases = {
     boot-windows = "systemctl reboot --boot-loader-entry=windows.conf";
   };
+  environment.systemPackages = [ pkgs.ntfs3g ];
 }
