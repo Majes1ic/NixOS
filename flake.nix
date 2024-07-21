@@ -18,7 +18,8 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @ inputs:
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
     let
       username = "tom";
     in
@@ -42,9 +43,20 @@
             inherit inputs username;
             hostname = "homelab";
           };
-          modules = [
-            ./hosts/homelab
-          ];
+          modules = [ ./hosts/homelab ];
+        };
+      };
+
+      homeConfigurations = {
+        "${username}@mac" = home-manager.lib.homeManagerConfiguration {
+          modules = [ ./home/mac.nix ];
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            config.allowUnfree = true;
+          };
+          extraSpecialArgs = {
+            inherit inputs username;
+          };
         };
       };
     };
