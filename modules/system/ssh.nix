@@ -2,6 +2,7 @@
 {
   services.openssh = {
     enable = true;
+    openFirewall = false;
 
     settings = {
       PasswordAuthentication = false;
@@ -13,6 +14,12 @@
       path = "/etc/ssh/ssh_host_ed25519_key";
       type = "ed25519";
     }];
+  };
+
+  networking.firewall.interfaces = {
+    #wg-discord.allowedTCPPorts = [22];
+    wg-home.allowedTCPPorts = [22];
+    enp3s0.allowedTCPPorts = [22];
   };
 
   users.users.${username}.openssh.authorizedKeys.keys = [
