@@ -7,11 +7,10 @@
 
   home.packages = with pkgs; [
     kitty
-    neovim
     micro
     git
-    xdg-utils         # because vs code doesn't work without it
-    vesktop           # discord client
+    xdg-utils # because vs code doesn't work without it
+    vesktop # discord client
     discord
     prismlauncher
     bitwarden-desktop
@@ -19,14 +18,39 @@
     lutris
     stremio
     qbittorrent
-    qpwgraph          # audio piping (patch panel)
+    qpwgraph # audio piping (patch panel)
     lua
     zed-editor
     godot_4
     love
+    gnomeExtensions.easyeffects-preset-selector
+    easyeffects
+    jellyfin-mpv-shim
+    jellyfin-media-player
   ];
 
-  programs.firefox.enable = true;
+  programs.neovim = {
+    enable = true;
+
+    extraPackages = with pkgs; [
+      # Runtime dependencies
+      fzf
+      lua-language-server
+      nixd
+      nil
+      stylua
+      nixfmt-rfc-style
+      ripgrep
+      gnumake
+      gcc
+      luajit
+    ];
+  };
+
+  programs.firefox = {
+    enable = true;
+  };
+
   # added as firefox broken on nvidia 555
   programs.chromium.enable = true;
   programs.obs-studio.enable = true;
