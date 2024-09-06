@@ -1,4 +1,9 @@
-{ lib, pkgs, username, ... }:
+{
+  lib,
+  pkgs,
+  username,
+  ...
+}:
 let
   extensions = with pkgs.gnomeExtensions; [
     appindicator
@@ -17,16 +22,18 @@ in
     desktopManager.gnome.enable = true;
   };
 
-  environment.systemPackages = extensions ++ (with pkgs.gnome; [
-    dconf-editor
-    gnome-tweaks
-  ]);
+  environment.systemPackages =
+    extensions
+    ++ (with pkgs.gnome; [
+      dconf-editor
+      gnome-tweaks
+    ]);
 
   # To workaround crashing, temporarily force Firefox to use xwayland.
   # Remove once these issues get resolved:
   # https://gitlab.gnome.org/GNOME/mutter/-/issues/3504
   # https://bugzilla.mozilla.org/show_bug.cgi?id=1898476
-  environment.sessionVariables.MOZ_ENABLE_WAYLAND = 0;
+  environment.sessionVariables.MOZ_ENABLE_WAYLAND = 1;
 
   # Enables wayland support in Chromium and Electron based applications. Until
   # the above firefox bug is fixed, this breaks link opening from discord as
@@ -90,8 +97,8 @@ in
         };
 
         "org/virt-manager/virt-manager/connections" = {
-          autoconnect = ["qemu:///system"];
-          uris = ["qemu:///system"];
+          autoconnect = [ "qemu:///system" ];
+          uris = [ "qemu:///system" ];
         };
       };
     };
