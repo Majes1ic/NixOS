@@ -12,8 +12,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     # Major issues if this is disabled
     modesetting.enable = true;
-    # Eventually enable this
-    open = false;
+    open = true;
     nvidiaSettings = false;
   };
 
