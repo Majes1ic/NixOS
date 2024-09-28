@@ -1,6 +1,7 @@
-{ pkgs, username, ... }: {
+{ pkgs, username, ... }:
+{
   environment.systemPackages = with pkgs; [ wireguard-tools ];
-	networking.wg-quick.interfaces = {
+  networking.wg-quick.interfaces = {
     wg-discord = {
       # Unlike the allowedIPs setting, the subnet mask here (/24) doesn't
       # represent a group of 256 IP addresses, it represents the network
@@ -12,7 +13,7 @@
       address = [ "10.0.0.6/24" ];
       autostart = false;
       privateKeyFile = "/home/${username}/.wireguard/private";
-      dns = ["10.0.0.7"];
+      dns = [ "10.0.0.7" ];
       peers = [
         {
           publicKey = "PbFraM0QgSnR1h+mGwqeAl6e7zrwGuNBdAmxbnSxtms=";
@@ -23,7 +24,7 @@
       ];
     };
     wg-home = {
-      address = ["10.0.1.1/24"];
+      address = [ "10.0.1.1/24" ];
       listenPort = 51820;
       autostart = true;
       privateKeyFile = "/home/${username}/.wireguard/private";
@@ -31,21 +32,17 @@
         {
           #for laptop
           publicKey = "T1EHPg4tkmQ1KFWGzspBYAkjzLL1JzWTNtPsSkObLUE=";
-          allowedIPs = ["10.0.1.2/32"];
+          allowedIPs = [ "10.0.1.2/32" ];
         }
         {
           #for phone
           publicKey = "xDDnUvzTcSGA4htsmYBSQykgLVv/MCEUwEKc+IOoL3w=";
-          allowedIPs = ["10.0.1.3/32"];
+          allowedIPs = [ "10.0.1.3/32" ];
         }
       ];
     };
   };
-  networking.firewall.interfaces.wg-discord = {
-    # For OBS screensharing
-    allowedUDPPorts = [ 5201 ];
-  };
-  networking.firewall.allowedUDPPorts = [ 51820 ];
+  #networking.firewall.allowedUDPPorts = [ 51820 ];
 
   programs.zsh = {
     shellAliases = {
