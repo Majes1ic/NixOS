@@ -27,6 +27,7 @@
     easyeffects
     jellyfin-mpv-shim
     jellyfin-media-player
+    lazygit
   ];
 
   programs.neovim = {
